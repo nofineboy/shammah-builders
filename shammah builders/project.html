@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Shammah Builders</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#0b0f19;
+color:white;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+background:#05070c;
+}
+
+nav h2{
+color:#d4af37;
+}
+
+/* HEADER */
+.header{
+padding:80px 60px 40px;
+text-align:center;
+}
+
+/* PROJECT GRID */
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+padding:0 60px 60px;
+}
+
+/* CARD */
+.card{
+background:#111827;
+border-radius:10px;
+overflow:hidden;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.status{
+font-size:12px;
+padding:5px 10px;
+border-radius:5px;
+display:inline-block;
+margin-bottom:10px;
+}
+
+.completed{
+background:#22c55e;
+color:black;
+}
+
+.ongoing{
+background:#facc15;
+color:black;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#05070c;
+}
+</style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Details</title>
+
+<style>
+body{
+font-family:Montserrat;
+background:#0b0f19;
+color:white;
+padding:40px;
+}
+
+img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.status{
+padding:5px 10px;
+border-radius:5px;
+}
+
+.completed{background:#22c55e;color:black;}
+.ongoing{background:#facc15;color:black;}
+</style>
+</head>
+
+<body>
+
+<h1 id="title"></h1>
+<span id="status" class="status"></span>
+
+<p><strong>Location:</strong> <span id="location"></span></p>
+
+<div id="images"></div>
+
+<p id="description"></p>
+
+<p id="progress"></p>
+
+<script>
+
+const data = {
+  duplex:{
+    title:"Luxury Duplex",
+    status:"completed",
+    location:"Abuja",
+    description:"A modern duplex with smart home features.",
+    progress:"Completed",
+    images:["5 bedroom duplex.PNG","stylish residentail home.PNG"]
+  },
+
+  bungalow:{
+    title:"Family Bungalow",
+    status:"completed",
+    location:"Lagos",
+    description:"Affordable and stylish home.",
+    progress:"Completed",
+    images:["bungalow.PNG"]
+  },
+
+  apartment:{
+    title:"Apartment Complex",
+    status:"ongoing",
+    location:"Port Harcourt",
+    description:"Multi-unit residential building.",
+    progress:"60% Completed",
+    images:["apartment ongoing.PNG"]
+  },
+
+  villa:{
+    title:"Luxury Villa",
+    status:"ongoing",
+    location:"Abuja",
+    description:"High-end luxury construction.",
+    progress:"80% Completed",
+    images:["stylish residentail homes.PNG"]
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const project = params.get("project");
+
+const p = data[project];
+
+if(p){
+document.getElementById("title").innerText = p.title;
+document.getElementById("location").innerText = p.location;
+document.getElementById("description").innerText = p.description;
+document.getElementById("progress").innerText = p.progress;
+
+const statusEl = document.getElementById("status");
+statusEl.innerText = p.status;
+statusEl.classList.add(p.status);
+
+const imgDiv = document.getElementById("images");
+
+p.images.forEach(src=>{
+  const img = document.createElement("img");
+  img.src = src;
+  imgDiv.appendChild(img);
+});
+}
+
+</script>
+
+</body>
+</html>
+<body>
+
+<nav>
+<h2>Shammah Builders</h2>
+</nav>
+
+<div class="header">
+<h1>Our Projects</h1>
+<p>Click any project to view full details</p>
+</div>
+
+<div class="projects">
+
+<!-- PROJECT 1 -->
+<div class="card" onclick="goToProject('duplex')">
+<img src="5 bedroom duplex.PNG">
+<div class="card-content">
+<span class="status completed">Completed</span>
+<h3>Luxury Duplex</h3>
+<p>Modern 5-bedroom duplex</p>
+</div>
+</div>
+
+<!-- PROJECT 2 -->
+<div class="card" onclick="goToProject('bungalow')">
+<img src="bungalow.PNG">
+<div class="card-content">
+<span class="status completed">Completed</span>
+<h3>Family Bungalow</h3>
+<p>Affordable family home</p>
+</div>
+</div>
+
+<!-- PROJECT 3 -->
+<div class="card" onclick="goToProject('apartment')">
+<img src="apartment ongoing.PNG">
+<div class="card-content">
+<span class="status ongoing">Ongoing</span>
+<h3>Apartment Complex</h3>
+<p>Multi-unit building</p>
+</div>
+</div>
+
+<!-- PROJECT 4 -->
+<div class="card" onclick="goToProject('villa')">
+<img src="mordern duplex.PNG">
+<div class="card-content">
+<span class="status ongoing">Ongoing</span>
+<h3>Luxury Villa</h3>
+<p>High-end construction</p>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Shammah Builders
+</footer>
+
+<script>
+function goToProject(name){
+  window.location.href = "project-details.html?project=" + name;
+}
+</script>
+
+</body>
+</html>

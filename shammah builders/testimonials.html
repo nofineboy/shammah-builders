@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials | Shammah Builders</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#0b0f19;
+color:white;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+background:#05070c;
+}
+
+nav h2{
+color:#d4af37;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* HEADER */
+.header{
+text-align:center;
+padding:60px 20px 30px;
+}
+
+.header h1{
+font-size:40px;
+}
+
+.header p{
+opacity:0.8;
+margin-top:10px;
+}
+
+/* TESTIMONIAL GRID */
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+padding:40px 60px;
+}
+
+/* CARD */
+.card{
+background:#111827;
+border-radius:10px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+/* CONTENT */
+.content{
+padding:20px;
+}
+
+.name{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.rating{
+color:#facc15;
+margin-bottom:10px;
+}
+
+.text{
+font-size:14px;
+opacity:0.85;
+line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#05070c;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<h2>Shammah Builders</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<!-- HEADER -->
+<div class="header">
+<h1>What Our Clients Say</h1>
+<p>Real experiences from satisfied homeowners</p>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials">
+
+<!-- TESTIMONIAL 1 -->
+<div class="card">
+<img src="house1.jpg">
+<div class="content">
+<div class="name">John Ade</div>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="text">
+Shammah Builders delivered beyond my expectations. My dream home came to life exactly as planned.
+</p>
+</div>
+</div>
+
+<!-- TESTIMONIAL 2 -->
+<div class="card">
+<img src="house2.jpg">
+<div class="content">
+<div class="name">Mary Afolabi</div>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="text">
+Very professional team. They handled everything smoothly and communicated well throughout the project.
+</p>
+</div>
+</div>
+
+<!-- TESTIMONIAL 3 -->
+<div class="card">
+<img src="house3.jpg">
+<div class="content">
+<div class="name">Daniel Musa</div>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="text">
+The quality of work is top-notch. I am extremely satisfied with my new home.
+</p>
+</div>
+</div>
+
+<!-- TESTIMONIAL 4 -->
+<div class="card">
+<img src="house4.jpg">
+<div class="content">
+<div class="name">Grace Okoro</div>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+<p class="text">
+From start to finish, they were excellent. I highly recommend Shammah Builders.
+</p>
+</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Shammah Builders
+</footer>
+
+</body>
+</html>

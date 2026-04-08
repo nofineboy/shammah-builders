@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Details | Shammah Builders</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style> 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#0b0f19;
+color:white;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+background:#05070c;
+}
+
+nav h2{
+color:#d4af37;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* CONTAINER */
+.container{
+padding:60px;
+}
+
+/* TITLE */
+.title{
+font-size:35px;
+margin-bottom:10px;
+}
+
+/* STATUS */
+.status{
+display:inline-block;
+padding:6px 12px;
+border-radius:5px;
+font-size:14px;
+margin-bottom:15px;
+}
+
+.completed{
+background:#22c55e;
+color:black;
+}
+
+.ongoing{
+background:#facc15;
+color:black;
+}
+
+/* IMAGE GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:15px;
+margin:30px 0;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+object-fit:cover;
+}
+
+/* DETAILS */
+.details{
+line-height:1.7;
+opacity:0.9;
+}
+
+/* INFO BOX */
+.info-box{
+margin-top:20px;
+background:#111827;
+padding:20px;
+border-radius:10px;
+}
+
+/* PROGRESS */
+.progress-bar{
+background:#1f2937;
+height:12px;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.progress{
+height:100%;
+background:#d4af37;
+width:0%;
+}
+
+/* BUTTON */
+button{
+margin-top:30px;
+padding:15px 25px;
+border:none;
+background:#d4af37;
+color:black;
+font-weight:bold;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#05070c;
+margin-top:50px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<h2>Shammah Builders</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+</div>
+</nav>
+
+<div class="container">
+
+<h1 class="title" id="title"></h1>
+<span class="status" id="status"></span>
+
+<p><strong>Location:</strong> <span id="location"></span></p>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery"></div>
+
+<!-- DESCRIPTION -->
+<div class="info-box">
+<h3>Project Description</h3>
+<p class="details" id="description"></p>
+</div>
+
+<!-- PROGRESS -->
+<div class="info-box">
+<h3>Progress</h3>
+<div class="progress-bar">
+<div class="progress" id="progressBar"></div>
+</div>
+<p id="progressText"></p>
+</div>
+
+<button onclick="alert('Consultation booked!')">Book Consultation</button>
+
+</div>
+
+<footer>
+© 2026 Shammah Builders
+</footer>
+
+<script>
+
+const projects = {
+duplex:{
+title:"Luxury Duplex",
+status:"completed",
+location:"Abuja, Nigeria",
+description:"A modern 5-bedroom duplex with smart home features, premium finishing, and spacious compound.",
+progress:100,
+images:["stylish residentail homes.PNG","mordern duplex.PNG"]
+},
+
+bungalow:{
+title:"Family Bungalow",
+status:"completed",
+location:"Lagos, Nigeria",
+description:"A comfortable and affordable family home designed for modern living.",
+progress:100,
+images:["bungalow.PNG"]
+},
+
+apartment:{
+title:"Apartment Complex",
+status:"ongoing",
+location:"Port Harcourt, Nigeria",
+description:"A multi-unit residential apartment currently under construction.",
+progress:65,
+images:["apartment complex.PNG","apartmentongoing.PNG"]
+},
+
+villa:{
+title:"Luxury Villa",
+status:"ongoing",
+location:"Abuja, Nigeria",
+description:"A high-end luxury villa with modern architecture and premium design.",
+progress:80,
+images:["5 bedroom duplex.PNG"]
+}
+};
+
+const params = new URLSearchParams(window.location.search);
+const projectKey = params.get("project");
+
+const project = projects[projectKey];
+
+if(project){
+
+document.getElementById("title").innerText = project.title;
+
+const statusEl = document.getElementById("status");
+statusEl.innerText = project.status;
+statusEl.classList.add(project.status);
+
+document.getElementById("location").innerText = project.location;
+
+document.getElementById("description").innerText = project.description;
+
+document.getElementById("progressBar").style.width = project.progress + "%";
+document.getElementById("progressText").innerText = project.progress + "% Completed";
+
+/* GALLERY */
+const gallery = document.getElementById("gallery");
+
+project.images.forEach((imgSrc, index)=>{
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  gallery.appendChild(img);
+});
+
+}
+
+</script>
+
+</body>
+</html>

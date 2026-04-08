@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Shammah Builders</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#0b0f19;
+color:white;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+background:#05070c;
+}
+
+nav h2{
+color:#d4af37;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* CONTAINER */
+.container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+padding:60px;
+}
+
+/* LEFT SIDE */
+.info h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.info p{
+opacity:0.8;
+line-height:1.7;
+margin-bottom:20px;
+}
+
+.contact-box{
+background:#111827;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.contact-box p{
+margin-bottom:10px;
+}
+
+/* FORM */
+form{
+background:#111827;
+padding:30px;
+border-radius:10px;
+}
+
+form h2{
+margin-bottom:20px;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:none;
+border-radius:5px;
+outline:none;
+background:#1f2937;
+color:white;
+}
+
+button{
+padding:15px;
+width:100%;
+border:none;
+background:#d4af37;
+color:black;
+font-weight:bold;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#b8962f;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#05070c;
+margin-top:40px;
+}
+
+@media(max-width:900px){
+.container{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<h2>Shammah Builders</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+
+<!-- LEFT SIDE -->
+<div class="info">
+<h1>Contact Us</h1>
+
+<p>
+Have a dream home in mind? Let Shammah Builders bring it to life.
+We are always ready to discuss your project and guide you through the process.
+</p>
+
+<div class="contact-box">
+<p><strong>📍 Location:</strong> Abuja, Nigeria</p>
+<p><strong>📞 Phone:</strong> +234 800 000 0000</p>
+<p><strong>✉️ Email:</strong> info@shammahbuilders.com</p>
+</div>
+</div>
+
+<!-- FORM -->
+<form onsubmit="sendMessage(event)">
+<h2>Send a Message</h2>
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Message</button>
+</form>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Shammah Builders
+</footer>
+
+<script>
+function sendMessage(e){
+e.preventDefault();
+
+let name = document.getElementById("name").value;
+
+alert("Thank you " + name + "! We will get back to you soon.");
+
+document.querySelector("form").reset();
+}
+</script>
+
+</body>
+</html>
